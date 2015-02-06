@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="films">
+<head>
+	<meta charset="UTF-8" />
+	<title>Oscar a la mejor película</title>
+</head>
+
+<body ng-app="springmvc-angular" ng-controller="FilmsController" ng-init="getFilms()">
+
+	<div class="container" ng-show="films != null">
+		<div class="film-info-bottom" ng-repeat="film in films">
+			<h4><span> {{film.year}} - {{film.title}} - {{film.director}} </span></h4>
+		</div>
+	</div>
+	
+	<div class="form">
+		<label for="title">Título:</label>
+		<input id="title" ng-model="title" type="text" />
+		
+		<label for="year">Año:</label>
+		<input id="year" ng-model="year" type="number" />
+		
+		<label for="director">Director:</label>
+		<input id="director" ng-model="director" type="text" />
+		
+		<button id="addBtn" class="btn" ng-click="addFilm()">Añadir película</button>
+	</div>
+	
+	<h4>{{msg}}</h4>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>
+	<script src="./js/services.js"></script>
+</body>
+</html>
+
